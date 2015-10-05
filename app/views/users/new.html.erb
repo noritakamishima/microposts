@@ -15,6 +15,12 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
+      
+      <%= f.label :area %>
+      <%= f.text_field :area %>
+      
+      <%= f.label :profile%>
+      <%= f.text_field :profile %>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
