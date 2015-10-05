@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def show # 追加
-   @user = User.find(params[:id])
   end
-  
   
   def new
     @user = User.new
@@ -19,6 +17,18 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+  end
+  
+  def update
+    if @user.update(user_params)
+      flash[:success] = "Successfully updated"
+      redirect_to user_path
+    else
+      render 'edit'
+    end
+  end
 
   private
 
@@ -27,5 +37,8 @@ class UsersController < ApplicationController
                                  :password_confirmation,:area,:profile)
   end
   
+  def set_user
+   @user = User.find(params[:id])
+  end
   
 end
