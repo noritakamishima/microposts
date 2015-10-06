@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :followers, :followings, :followingsfollowers]
   
   def show # 追加
       @user = User.find(params[:id])
@@ -31,6 +31,20 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  def followings
+    @followings = @user.following_users;
+  end
+
+  def followers
+    @followers = @user.follower_users;
+  end
+
+def followingsfollowers
+    @followings = @user.following_users;
+    @followers = @user.follower_users;
+end
+
 
   private
 
