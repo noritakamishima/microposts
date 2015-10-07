@@ -17,7 +17,7 @@
                 Following (<%= @user.following_users.count %>)
             </h3>
             <ol class="microposts">
-                <% @following_users.each do |following_user| %>
+                <% @followings.each do |following_user| %>
                     <li><%= link_to gravatar_for(following_user, size: 50), following_user %></li>
                     <li><span class="user"><%= link_to following_user.name, user_path(following_user) %></span></li>
                 <% end %>
